@@ -1,0 +1,124 @@
+@font-face {
+  font-family: Roboto;
+  src: url(./fonts/Roboto.ttf);
+}
+@font-face {
+  font-family: Forum;
+  src: url(./fonts/Forum.ttf);
+}
+
+:root{
+  --first-main-color: #710707;
+  --second-main-color: #9D8665;
+  --third-main-color: #030303;
+  --active-el-color: #7E6C51;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.header{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--third-main-color);
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+
+.welcome-section{
+  width: 100%;
+  height: 810px;
+  background-color: var(--third-main-color);
+  display: flex;
+  justify-content: center;
+}
+.welcome-section__container{
+  width: 75%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  /* padding-bottom: 60px; */
+}
+.virtualTour-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.pictureExplore-section{
+  width: 100%;
+  background-color: var(--third-main-color);
+  display: flex;
+  justify-content: center;
+}
+
+.videoJourney-section{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--third-main-color);
+  margin-bottom: 35px;
+}
+.buyTicketsSection{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.parallax-section{
+  margin:75px 0;
+  width: 100%;
+}
+.contacts-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 88px;
+}
+.footer-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--third-main-color);
+}
+@media (max-width: 1024px) {
+  .welcome-section{
+    height: 585px;
+  }
+  .welcome-section__container{
+    width: 96%;
+  }
+}
+@media (max-width: 768px){
+  .welcome-section{
+    height: 861px;
+  }
+  .welcome-section__container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-gap: 15px 0;
+  }
+}
+@media (max-width: 550px){
+  .welcome-section{
+    height: 544px;
+  }
+}

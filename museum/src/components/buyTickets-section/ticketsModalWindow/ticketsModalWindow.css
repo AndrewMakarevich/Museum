@@ -1,0 +1,417 @@
+.modal-background{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    position: fixed;
+    top:0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.7);
+    opacity:0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+.modal-block{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: rgb(255, 255, 255);
+    max-height: 95%;
+    overflow: auto;
+    overflow-y: auto;
+}
+.modal-block{
+ margin-left: -100%;
+ opacity: 0;
+ transition: .3s;
+}
+.closeButton{
+    position:fixed;
+    padding: 0;
+    margin: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    align-self: flex-end;
+    z-index: 4;
+}
+
+.modal-block__inputSection{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-gap: 50px 40px;
+    padding: 91px 235px;
+}
+/* .modal-block__inputSection section{
+    width: 320px;
+} */
+.inputSection__personalData{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width:100%;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+
+.modal-block__header{
+    position: relative;
+    width: 100%;
+    margin:0;
+    margin-top: 40px;
+    font-family: Forum;
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color:var(--second-main-color);
+}
+.modal-block__header::before{
+    content: url(../../../icons/TicketLogo.svg);
+    position: absolute;
+    bottom: 70%;
+}
+.modal-block__underheader{
+    width: 100%;
+    margin-top: 13px;
+    padding-bottom: 10px;
+    font-family: Roboto;
+    color: var(--first-main-color);
+    font-size: 18px;
+    border-bottom: solid var(--first-main-color) 3px;
+    
+}
+.ticketInput{
+    border: solid black 2px;
+    margin-bottom: 20px;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    min-height: 24px;
+    padding: 12px 0;
+    padding-left: 30px;
+    transition: background-color .3s;
+    z-index:0;
+    /* background-position: initial; */
+}
+.ticketInput:invalid{
+    background-color: rgb(248, 169, 169);
+}
+.ticketInput:valid{
+    background-color: rgb(182, 229, 241);
+}
+.modal-block__entry-ticket{
+    width: 100%;
+    border: solid black 2px;
+    padding: 15px;
+    
+}
+.entry-ticket__header{
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    /* line-height: 20px; */
+    color: var(--second-main-color);
+    border-bottom: solid var(--first-main-color) 3px; 
+    padding-bottom: 5px;
+    margin-bottom: 18px;
+}
+.buyPanel__amountOfTickets{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 100%; 
+    
+}
+/* CARD SECTION */
+.inputSection__overviewBlock{
+    position: relative;
+}
+.inputSection__overviewBlock:after{
+    content: url(../../../icons/pyramid.png);
+    position: absolute;
+    width: 150px;
+    height: 120px;
+    right: 0;
+    top:0;
+}
+.overviewBlock__header{
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 32px;
+    margin-top: 0;
+}
+.overviewBlock__underheader{
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--first-main-color);
+}
+.overviewBlock__list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.overviewBlock__list li{
+    padding-left: 25px;
+    background-size: 20px;
+    background-repeat:no-repeat;
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 5px 0;
+}
+.overviewBlock__chosenTickets{
+    border-bottom: solid var(--first-main-color) 3px;
+}
+.chosenTickets__ticket{
+    display: flex;
+    justify-content: space-between;
+}
+.chosenTickets__info{
+    display: flex;
+    align-items: center;
+}
+.chosenTickets__amount{
+    background-color: black;
+    color: white;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.chosenTickets__type,
+.chosenTickets__price{
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 5px 0;
+}
+
+.overviewBlock__chosenTickets__totalPrice{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.totalPrice-header,
+.totalPrice-value{
+    margin: 10px 0;
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 32px;
+}
+.cardBlock{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.cardBlock__front-info{
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 10px;
+    background-color:#BCBCBC;
+    height: 211px;
+    width: 360px;
+    bottom: 30px;
+    right: 110px;
+    padding:15px 20px;
+    z-index: 2;
+}
+.cardBlock__front-info:before{
+    content: url(../../../icons/card-icons/Mastercard.svg);
+    position: absolute;
+    top: 65px;
+    right: 20px;
+}
+.cardBlock__front-info:after{
+    content: url(../../../icons/card-icons/Visa.svg);
+    position: absolute;
+    top: 35px;
+    right: 20px;
+}
+
+.cardBlock__front-info article{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.cardBlock__front-info article label{
+    position: absolute;
+    top:0px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 600;
+}
+.cardBlock__front-info article input{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    border:none;
+    font-family: Roboto;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.cardNumber-block,
+.expirationDate-block{
+    width: 210px;
+}
+
+.cardBlock__back-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items:flex-end;
+    border-radius: 10px;
+    margin-top: 40px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    background-color:#939393;
+    height: 211px;
+    width: 360px;
+    z-index: 1;  
+}
+.cardBlock__back-info:after{
+    content: "";
+    position: absolute;
+    left:0;
+    top: 25px;
+    height: 45px;
+    width: 100%;
+    
+    background-color:black;
+    z-index:0;
+}
+.cvc-info__header{
+    width:75px;
+    font-family: Roboto;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+.cvc-info{
+    width: 75px;
+    height: 35px;
+    font-family: Roboto;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.cvc-addInfo{
+    width: 75px;
+    font-family: Roboto;
+    font-size: 10px;
+    text-align: center;
+    font-weight: 600;
+    
+}
+
+/*  */
+.modalStyle{
+    height: 25px;
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 18px; 
+}
+.date{
+    background-image: url(../../../icons/input-icons/dateIcon.svg);
+}
+.time{
+    background-image: url(../../../icons/input-icons/timeIcon.svg);
+}
+.user{
+    background-image: url(../../../icons/input-icons/userIcon.svg);
+}
+.tel{
+    background-image: url(../../../icons/input-icons/telIcon.svg);
+}
+.email{
+    background-image: url(../../../icons/input-icons/mailIcon.svg);
+}
+.ticket{
+    background-image: url(../../../icons/input-icons/ticketIcon.svg);
+}
+.check{
+    background-image: url(../../../icons/input-icons/checkIcon.svg);
+}
+.shortedInput{
+    width: 40%;
+}
+.longInput{
+    width: 100%;
+}
+
+.book-button__block{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 26px;
+}
+.book-button{
+    background-color: var(--first-main-color);
+    color: white;
+    padding: 10px 85px;
+    font-family: Roboto;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    margin-right: 0;
+}
+
+.modalStyle button{
+    font-size: 20px;
+    background-color: black;
+    color: white;
+}
+.openModalBlock{
+    margin:0;
+    opacity: 1;
+}
+.openModal{
+    opacity:1;
+    pointer-events:all;
+}
+
+@media (max-width: 1200px) {
+    .modal-block{
+        width: 100%;
+    }
+    .modal-block__inputSection{
+        padding: 30px 27px;
+    }
+    .inputSection__cardData{
+        
+    }
+}
+@media(max-width: 500px){
+    .modal-block__header::before{
+        bottom: 85%;
+    }
+    .modal-block__inputSection{
+        grid-template-columns: 1fr;
+        grid-gap: 50px 0;
+    }
+    .inputSection__personalData,
+    .inputSection__cardData{
+        /* padding: 0 10px; */
+        box-sizing: border-box;
+    }
+    .cardBlock{
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+    }
+    .cardBlock__back-info{
+        width: 330px;
+    }
+    .cardBlock__front-info{
+        width: 330px;
+        position: relative;
+        bottom: 0;
+        right: 0;
+    }
+    .shortedInput{
+        width: 100%;
+    }
+}

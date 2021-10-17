@@ -1,0 +1,7 @@
+.closeIcon{
+    transition: color .3s;
+    fill: white;
+}
+.closeIcon:hover{
+    color: var(--first-main-color);
+}

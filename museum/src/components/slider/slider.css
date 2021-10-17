@@ -1,0 +1,90 @@
+.slider-block{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.slider{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* transition: .3s; */
+    background-color: #030303;
+}
+.slider img{
+    position:absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.slider-buttons{
+    position: absolute;
+    bottom:0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(3,3,3,1) 36%);
+    width: auto;
+    display: flex;
+    align-self: end;
+    justify-content: center;
+    align-items:center;
+}
+.scrollButtons button{
+    border-radius:50%;
+    border: none;
+    margin: 10px;
+    width: 15px;
+    height: 15px;
+    transition: background-color .3s;
+    cursor: pointer;
+}
+.scrollButtons button:hover{
+    background-color: var(--active-el-color);
+}
+.arrowButtons {
+    display: flex;
+}
+.arrowButtons button{
+     display: flex; /*Центрировал svg в button */
+    margin: 10px;
+    padding: 0;
+    background-color:transparent;
+    border: none;
+    cursor: pointer;
+}
+.arrowLeft-icon{
+    color: white;
+    transition: color .3s;
+}
+.arrowRight-icon{
+    color: white;
+    transition: color .3s;
+}
+.arrowLeft:hover .arrowLeft-icon{
+    color: var(--first-main-color);
+}
+.arrowRight:hover .arrowRight-icon{
+    color: var(--first-main-color);
+}
+.active{
+    background-color: var(--second-main-color);
+}
+
+
+@media (max-width: 1024px) {
+    .slider-buttons{
+        position: relative;
+    }
+  }
+@media (max-width: 768px){
+    .slider-block{
+        justify-content: center;
+    }
+    .slider-buttons{
+        align-self:center;
+    }
+}

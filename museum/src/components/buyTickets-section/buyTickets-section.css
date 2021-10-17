@@ -1,0 +1,179 @@
+.buyTickets-container{
+    width: 75%;
+    background-color:transparent;
+    margin-bottom: 25px;
+}
+.buyTickets-header{
+    font-family: Forum;
+    font-weight: 100;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--second-main-color);
+    border-bottom: solid var(--first-main-color) 2px;
+}
+.buyTickets-mainBlock{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 0 60px;
+}
+.buyTickets-mainBlock__img{
+    width: 100%;
+    object-fit: contain;
+}
+.buyTickets-mainBlock__buyPanel{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.buyPanel-header{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+}
+.buyPanel__ticketType{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.ticketType-list{
+    list-style: none;
+    padding:0;
+}
+.ticketType-item{
+    margin: 25px 0;
+}
+.ticketType-item input{
+    cursor: pointer;
+}
+.ticketType-item__header{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+
+.buyPanel__amount{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+.buyPanel__amount-header{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.buyPanel__amount-counterBlock{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    border: solid var(--third-main-color) 3px;
+    height: 50px;
+    width: 150px;
+}
+.counterBlock-decrement,
+.counterBlock-increment{
+    background-color: transparent;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    height: 100%;
+}
+.counterBlock-decrement:hover,
+.counterBlock-increment:hover{
+    background-color: var(--second-main-color);
+}
+.counterBlock-decrement:active,
+.counterBlock-increment:active{
+    font-size: 19px;
+}
+.counterBlock-value{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+}
+.buyPanel__amount-totalPrice{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 1.65px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+.buyPanel__amount-buyButton{
+    border:none;
+    background-color: var(--third-main-color);
+    color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 26px;
+    padding:10px 28px;
+    cursor: pointer;
+    transition: .3s;
+}
+.buyPanel__amount-buyButton:hover{
+    background-color: var(--active-el-color);
+}
+
+
+@media (max-width:1024px) {
+    .buyTickets-header{
+        font-size: 50px;
+        line-height: 75px;
+    }
+    .buyTickets-container{
+        width:96%;
+    }
+    .buyTickets-mainBlock{
+        grid-template-columns: 3fr 1fr;
+    }
+    .buyPanel__ticketType{
+        display: none;
+    }
+    .buyPanel__amount{
+        align-items:center;
+        justify-content: space-between;
+    }
+    .buyPanel-header{
+        justify-self: flex-start;
+        margin-top: 0;
+    }
+    .buyPanel__amount-header{
+        /* margin:0; */
+    }
+    .buyPanel__amount-totalPrice{
+        /* margin: 0; */
+    }
+}
+@media (max-width:768px) {
+    .buyTickets-header{
+        font-size: 40px;
+        line-height: 60px;
+    }
+}
+@media (max-width:550px) {
+    .buyTickets-header{
+        font-size: 28px;
+        line-height: 40px;
+    }
+    .buyTickets-mainBlock{
+        grid-template-columns: 1fr;
+    }
+}

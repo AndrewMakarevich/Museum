@@ -1,0 +1,74 @@
+.gallery-container{
+    position: relative;
+    width: 75%;
+    background-color:transparent;
+    max-height: 2000px;
+    overflow: hidden;
+}
+.gallery-header{
+    font-family: Forum;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    color: #FFFFFF; 
+    
+}
+.gallery-columns{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-column-gap:36px;
+    overflow-y:auto;
+}
+.gallery-columns::-webkit-scrollbar{
+    width: 0px;
+}
+.gallery-image{
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .3s;
+}
+.visible-gallery-image{
+    transform: translateY(0);
+    opacity: 1;
+}
+.gallery-image-margin{
+    margin-top: 50px;
+}
+.gallery-footer{
+    position: absolute;
+    width: 100%;
+    height: 125px;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(3,3,3,1) 71%);
+    bottom: 0;
+}
+@media (max-width:1024px) {
+    .gallery-container{
+        width:96%;
+    }
+    .gallery-header{
+        font-size: 50px;
+        line-height: 75px;
+    }
+}
+@media (max-width:768px) {
+    .gallery-header{
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .gallery-columns{
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap:24px;
+    }
+}
+@media (max-width:550px) {
+    .gallery-header{
+        font-size: 28px;
+        line-height: 40px;
+    }
+}

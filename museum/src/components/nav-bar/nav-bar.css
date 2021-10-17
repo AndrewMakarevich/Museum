@@ -1,0 +1,225 @@
+
+
+.navBar{
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap ;
+    width: 75%;
+    padding: 56.5px 0;
+}
+.navBar__logo__header{
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 31px;
+    color: white;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+.navBar__logo__header::before{
+    content: url(../../icons/LouvreIcon.svg);
+    margin-right: 25px;
+}
+.navBar__buttonsBlock{
+    display: flex;
+}
+.buttonsBlock__article{
+    display: flex;
+}
+
+.navBar__buttonsBlock .buttonsBlock-button{
+    font-family: Roboto;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 35px;
+
+}
+.navBar__buttonsBlock .buttonsBlock-button a{
+    text-decoration: none;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: white;
+    transition: color .3s;
+}
+.navBar__buttonsBlock .buttonsBlock-button a:hover{
+    color: var(--second-main-color);
+}
+.navBar__buttonsBlock .buttonsBlock-button a:active{
+    color: var(--active-el-color);
+}
+.buttonsBlock-mobileIcon{
+    display: none;
+    align-items: center;
+}
+
+/* BURGER ICON */
+.navBar__burger-icon{
+    display: none;
+    position: relative;
+    width: 32px;
+    height: 18px;
+    background-color:transparent;
+    border: none;
+    cursor: pointer;
+}
+.navBar__burger-icon span{
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    pointer-events: none;
+    left:0;
+    transition: .2s;
+}
+.burger-icon__frstLine{
+    top:0;
+}
+.burger-icon__secLine{
+    top:50%;
+}
+.burger-icon__thirdLine{
+    top: 100%;
+}
+.frstLine-active{
+    top:50%;
+    transform: rotate(45deg);
+}
+.secLine-active{
+    opacity:0;
+}
+.thirdLine-active{
+    top:50%;
+    transform: rotate(-45deg);
+}
+
+
+/* MOBILE CONTENT */
+.navBar__mobileContent{
+    display: none;
+    width: 100%;
+}
+.navBar__mobileContent-photos{
+    display: grid;
+    grid-auto-rows: minmax(161px, 194px);
+    grid-auto-columns: 1fr;
+    grid-gap: 15px;
+    padding-top: 20px;
+}
+.photos__f{
+    grid-column: 1 / 3;
+}
+.photos__s{
+    max-height: 161px;
+}
+.mobileContent-photos__photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* MOBILE NAV BAR CONTACT BLOCK */
+.navBar__mobileContent-contacts{
+    border-top: solid white 2px;
+}
+.contacts{
+    /* border-top: solid white 2px; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.contacts-icon{
+    border: solid white 1px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    /* margin:20px; */
+    cursor: pointer;
+    transition: .3s;
+}
+.contact-icon{
+    pointer-events: none;
+    transition: fill .1s;
+    
+}
+.contacts-icon:hover .contact-icon,
+.contacts-icon:hover{
+    fill: var(--first-main-color);
+    border-color: var(--first-main-color);
+}
+/*  */
+
+@media (max-width: 1024px) {
+    .navBar{
+      width: 96%;
+    }
+    .navBar__buttonsBlock{
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items:flex-start;
+        padding: 0 24px;
+        position:absolute;
+        top: 100%;
+        left:-110%;
+        width: 45%;
+        
+        min-height: 585px;
+        height: auto;
+        background: linear-gradient(90deg, rgba(3,3,3,1) 75%, rgba(255,255,255,0) 100%);
+        z-index:2;
+        transition: .3s;
+    }
+    .navBar__buttonsBlock .buttonsBlock-button{
+        margin: 10px 0;
+    }
+    .buttonsBlock__article{
+        justify-content: space-between;
+        min-width: 140px;
+    }
+    .buttonsBlock-mobileIcon{
+        display: flex;
+    }
+    .navBar__burger-icon{
+        display: block;
+    }
+  }
+
+  @media (max-width: 768px){
+    .navBar__buttonsBlock{
+        width: 100%;
+        background-color: var(--third-main-color);
+    }
+    .navBar__mobileContent{
+        display: block;
+    }
+  }
+  @media (max-width:550px){
+    .navBar__buttonsBlock{
+        min-height: 544px;
+    }
+    .navBar__mobileContent-photos{
+        grid-template-columns: repeat(auto-fit, minmax(98px, 1fr));
+        grid-auto-rows: 98px;
+        justify-content: center;
+        margin-bottom: 35px;
+    }
+    .photos__f{
+        grid-column: 1/1;
+    }
+    .contacts{
+        margin-top: 20px;
+        justify-content: center;
+    }
+    .contacts-icon{
+        margin: 20px 2px;
+    }
+  }
+
+  .activeBurger{
+      left: 0;
+  }

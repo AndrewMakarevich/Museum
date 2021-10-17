@@ -1,0 +1,87 @@
+
+.welcome-section__block{
+    position: relative;
+    white-space: pre-line;
+    z-index: 1;
+    pointer-events: none;
+    /* padding: 80px 0; */
+    /* height: 100%; */
+}
+.welcome-section__header{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    width: 145%;
+    height: 100%;
+    color: white;
+    background: linear-gradient(90deg, rgba(3,3,3,1) 75%, rgba(255,255,255,0) 100%);
+    transition: .3s;
+}
+.welcome-section__header h1{
+    font-family: Forum;
+    margin: 10px 0;
+    font-size: 80px;
+    font-weight:100;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    line-height: 90px;
+}
+.welcome-section__header h2{
+    font-family: Roboto;
+    font-size: 28px;
+    font-weight:100;
+    letter-spacing: 2px;
+}
+.welcome-section__discoverBtn{
+    background-color: var(--first-main-color);
+    margin-top: 75px;
+    color: white;
+    font-size: 22px;
+    font-family: Roboto;
+    padding: 22px 65px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color .3s;
+    pointer-events: all;
+}
+
+.opacityHide{
+    width: 100%;
+}
+.welcome-section__discoverBtn:hover{
+    background-color:var(--second-main-color);
+}
+.welcome-section__discoverBtn:active{
+    background-color: var(--active-el-color);
+}
+
+@media (max-width: 1024px) {
+    .welcome-section__header h1{
+        font-size: 50px;
+    }
+    .welcome-section__header h2{
+        font-size: 24px;
+    }
+  }
+  @media (max-width: 768px){
+    .welcome-section__header{
+        position: relative;
+        width: 100%;
+        align-items:center;
+    }
+    .welcome-section__header h1{
+        font-size: 40px;
+        line-height: 60px;
+        text-align: center;
+    }
+    .welcome-section__header h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    .welcome-section__discoverBtn{
+        display: none;
+    }
+  }

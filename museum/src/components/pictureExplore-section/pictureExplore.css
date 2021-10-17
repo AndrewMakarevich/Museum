@@ -1,0 +1,109 @@
+.pictureExplore__container{
+    width: 75%;
+    white-space: pre-line;
+    padding: 75px 0;
+}
+.pictureExplore__container-item{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 50px;
+    margin-bottom: 20px;
+}
+.pictureExplore__container__text{
+    font-family: Roboto;
+    font-size: 22px;
+    line-height: 38px;
+    color: white;
+}
+.pictureExplore__container__textHeader{
+    margin-top: 0;
+    font-family: Forum;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    font-weight: 100;
+    text-transform: uppercase;
+    border-bottom: solid var(--first-main-color) 2px;
+}
+.pictureExplore__container__picture{
+    position: relative;
+    user-select: none;
+}
+.pictureExplore__container__picture .pictureExplore__picture{
+    width: 100%;
+    height: auto;
+    /* object-fit: contain; */
+}
+.beforePicture-block{
+    position: relative;
+}
+.pictureExplore__altPicture{
+    position: relative;
+    height:100%;
+    width: 100%;
+    object-fit:cover;
+    object-position: right;
+}
+.afterPicture-block{
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    top:0;
+    right: 0;
+}
+.resizeButton{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: solid 3px white;
+    background-color: black;
+    position: absolute;
+    top:47%;
+    left: -12.5px;
+    z-index: 1;
+    cursor: pointer;
+    transition: .3s;
+    
+}
+.resizeButton:hover{
+    background-color: var(--first-main-color);
+}
+@media (max-width: 1024px){
+    .pictureExplore__container{
+        width:96%;
+    }
+    .pictureExplore__container-item{
+        grid-template-columns: 1fr;
+    }
+    .pictureExplore__container__textHeader{
+        font-size: 50px;
+        line-height: 75px;
+    }
+    .pictureExplore__container__textInfo{
+        font-size: 20px;
+        line-height: 38px;
+    }
+}
+@media (max-width: 768px){
+    /* .pictureExplore__container-item{
+        grid-template-columns: 1fr;
+    } */
+    .pictureExplore__container__textHeader{
+        font-size: 40px;
+        line-height: 60px;
+        margin-bottom: 0;
+    }
+    .pictureExplore__container__textInfo{
+        display: none;
+    }
+}
+@media (max-width: 550px){
+    .pictureExplore__container__textHeader{
+        font-size: 28px;
+        line-height: 40px;
+        margin-bottom: 0;
+    }
+    .pictureExplore__container__textInfo{
+        display: none;
+    }
+}

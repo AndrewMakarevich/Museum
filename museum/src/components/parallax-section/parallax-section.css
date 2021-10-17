@@ -1,0 +1,11 @@
+.parallax-container{
+    position: relative;
+    /* width: 100%; */
+    overflow: hidden;
+    height: 400px;
+    background-image: url(../../icons/louvreParallax.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
