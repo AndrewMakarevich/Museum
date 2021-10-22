@@ -5,6 +5,7 @@ const UserService = require('../services/userService');
 class UserConstroller {
     async registration(req, res, next) {
         try {
+            let b;
             const { nickname, name, password, role, email } = req.body;
             const { avatar } = req.files;
             const response = await UserService.registration(nickname, name, password, role, email, avatar);
