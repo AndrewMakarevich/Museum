@@ -1,12 +1,14 @@
 const { User } = require('../models/models');
 const { Op } = require('sequelize');
 const ApiError = require('../error/ApiError');
+const Validator = require('../validator/validator');
 const path = require('path');
 const uuid = require('uuid');
 const bcrypt = require('bcrypt');
 const MailService = require('../services/mailService');
 const TokenService = require('../services/tokenService');
 const UserDto = require('../dtos/userDto');
+
 class UserService {
     async registration(nickname, name, password, role, email, avatar) {
         try {
@@ -102,6 +104,68 @@ class UserService {
             throw ApiError.badRequest(e.message);
         }
 
+    }
+    async login(email, password) {
+        try {
+            Validator.validateEmail(email);
+            Validator.validatePassword(password);
+
+            const user = await User.findOne({
+                where: { email }
+            });
+            if (!user) {
+                throw ApiError.badRequest('Incorrect email or password');
+            }
+            const comparePass = await bcrypt.compare(password, user.password);
+            if (!comparePass) {
+                throw ApiError.badRequest('Incorrect email or password');
+            }
+            const userData = new UserDto(user);
+            const tokens = TokenService.generateTokens({ ...userData });
+            await TokenService.saveToken(userData.id, tokens.refreshToken);
+            return {
+                ...tokens,
+                user: userData
+            };
+        } catch (e) {
+            throw ApiError.badRequest(e.message);
+        }
+
+    }
+    async logout(refreshToken) {
+        try {
+            const token = await TokenService.deleteToken(refreshToken);
+            return token;
+        } catch (e) {
+            throw ApiError.badRequest(e.message);
+        }
+
+    }
+    async refreshToken(refreshToken) {
+        try {
+            if (!refreshToken) {
+                throw ApiError.badRequest('Unauthorized user');
+            }
+            const response = TokenService.validateRefreshToken(refreshToken);
+            const tokenExistence = TokenService.findToken(refreshToken);
+            if (!response || !tokenExistence) {
+                throw ApiError.badRequest('Unauthorized user');
+            }
+            const userData = new UserDto(response);
+            const tokens = TokenService.generateTokens({ ...userData });
+            await TokenService.saveToken(userData.id, tokens.refreshToken);
+            return {
+                ...tokens,
+                user: userData
+            };
+        } catch (e) {
+            throw ApiError.badRequest(e.message);
+        }
+
+    }
+    async getAll() {
+        const users = await User.findAll();
+        return { users }
     }
 }
 module.exports = new UserService();

@@ -5,14 +5,14 @@ class MailService {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'andrewlouvresite@gmail.com',
-                pass: "ustodejiveqofpvi"
+                user: process.env.EMAIL_LOGIN,
+                pass: process.env.EMAIL_PASS
             }
         });
         await transporter.sendMail({
-            from: 'andrewlouvresite@gmail.com',
+            from: process.env.EMAIL_LOGIN,
             to: clientMail,
-            subject: 'Louvre',
+            subject: 'Louvre account activation',
             html: `
             <h1>Louvre account activation</h1>
             <p>To activate account, please, follow this link:</p>

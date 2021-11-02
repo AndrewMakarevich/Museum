@@ -107,7 +107,7 @@ export const validateOther = (target) => {
             </ul>`);
         }
     } else if (target.dataset.sample === 'email') {
-        const regEx = /^\s*[a-zA-z-_0-9\r]{3,}@([a-z]{2,}.)?[a-z]{4,}.[a-z]{2,}/;
+        const regEx = /^\s*[a-zA-z-_0-9\r]{3,}@([a-z]{2,}.)?[a-z]{4,}.[a-z]{2,}$/;
         if (!regEx.test(target.value)) {
             target.value = '';
             return customAlert(`<h3>Incorrect email</h3>
